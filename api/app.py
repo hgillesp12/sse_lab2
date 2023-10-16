@@ -20,12 +20,13 @@ def submit():
                            image_link=load_image(flavor_rating))
 
 def load_image(flavor_rating):
-    match flavor_rating:
-        case "Chocolate":
-            return "images/chocolate.jpg"
-        case "Mint Chocolate":
-            return "images/mint.jpg"
-        case "Pistachio":
-            return "images/pistachio.jpg"
-        case "Strawberry":
-            return "images/strawberry.jpg"
+    if flavor_rating == "Chocolate":
+        return "images/chocolate.jpg"
+    elif flavor_rating == "Mint Chocolate":
+        return "images/mint.jpg"
+    elif flavor_rating == "Pistachio":
+        return "images/pistachio.jpg"
+    elif flavor_rating == "Strawberry":
+        return "images/strawberry.jpg"
+    else: 
+        return "images/imperial_logo.png"
