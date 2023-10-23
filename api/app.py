@@ -34,3 +34,11 @@ def load_image(flavor_rating):
         return "images/strawberry.jpg"
     else:
         return "images/imperial_logo.png"
+
+
+def process_query(input_text: str):
+    if input_text == "dinosaurs":
+        return "Dinosaurs ruled the Earth 200 million years ago"
+    elif input_text == "asteroids":
+        return "Unknown"
+
