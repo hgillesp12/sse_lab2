@@ -43,4 +43,3 @@ def process_query():
         return "Dinosaurs ruled the Earth 200 million years ago"
     elif input_text == "asteroids":
         return "Unknown"
-
