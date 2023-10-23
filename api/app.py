@@ -45,5 +45,5 @@ def query():
 def process_query(input_text):
     if input_text == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
-    elif input_text == "asteroids":
+    else:
         return "Unknown"
