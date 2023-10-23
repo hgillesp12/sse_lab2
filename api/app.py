@@ -36,9 +36,13 @@ def load_image(flavor_rating):
         return "images/imperial_logo.png"
 
 
-#@app.route("/query")
+@app.route("/query")
+def query():
+    input_text = request.args.get('q')
+    return process_query(input_text)
+
+
 def process_query(input_text):
-    #input_text = request.args.get('q')
     if input_text == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
     elif input_text == "asteroids":
