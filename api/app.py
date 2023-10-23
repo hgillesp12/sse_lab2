@@ -37,7 +37,7 @@ def load_image(flavor_rating):
 
 
 @app.route("/query")
-def process_query():
+def process_query(input_text):
     input_text = request.args.get('q')
     if input_text == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
