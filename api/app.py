@@ -3,13 +3,13 @@ from flask import Flask, render_template, send_from_directory, request
 app = Flask(__name__)
 
 
-@app.route("/")   
+@app.route("/")
 def hello_world():
     return render_template("index.html")
 
 
 @app.route('/images/<path:path>')
-def serve_static(path): 
+def serve_static(path):
     return send_from_directory('static/images', path)
 
 
@@ -21,6 +21,7 @@ def submit():
                            name=input_name,
                            flavor=flavor_rating,
                            image_link=load_image(flavor_rating))
+
 
 def load_image(flavor_rating):
     if flavor_rating == "Chocolate":
