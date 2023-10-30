@@ -43,7 +43,7 @@ def query():
 
 
 def process_query(input_text):
-    if input_text == "dinosaurs":
+    if "dinosaurs" in input_text:
         return "Dinosaurs ruled the Earth 200 million years ago"
     elif "name" in input_text:
         return "Ctrl+Alt+Defeat"
