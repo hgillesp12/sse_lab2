@@ -45,15 +45,16 @@ def query():
 def process_query(input_text):
     if input_text == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
+    elif "Which of the following numbers is the largest" in input_text:
+        return str(find_largest(input_text))
     else:
         return "Unknown"
 
 
-def process_query2(input_text):
-    s = "Which of the following numbers is the largest: 45, 70, 30"
+def find_largest(input_text):
     numbers = []
     current_number = ''
-    for char in s:
+    for char in input_text:
         if char.isdigit():
             current_number += char
         elif current_number:
@@ -64,3 +65,5 @@ def process_query2(input_text):
     if current_number:
         numbers.append(int(current_number))
     return max(numbers)
+
+    
