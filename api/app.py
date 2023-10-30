@@ -53,6 +53,8 @@ def process_query(input_text):
         return str(find_largest(input_text))
     elif "square and a cube" in input_text:
         return str(process_square_and_cube(input_text))
+    elif "minus" in input_text:
+        return str(subtraction(input_text))
     else:
         return "Unknown"
 
@@ -100,3 +102,11 @@ def find_largest(input_text):
     if current_number:
         numbers.append(int(current_number))
     return max(numbers)
+
+
+def subtraction(input_text):
+    x = input_text.split()
+    num1 = x[2]
+    num2 = x[4][:-1]
+    temp = int(num1) - int(num2)
+    return str(temp)
