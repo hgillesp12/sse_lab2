@@ -111,6 +111,7 @@ def subtraction(input_text):
     num1 = x[2]
     num2 = x[4][:-1]
     temp = int(num1) - int(num2)
+    return str(temp)
 
     
 def multiply(input_text):
