@@ -23,3 +23,10 @@ def test_largest_number():
     assert process_query(
         "Which of the following numbers is the largest: 45, 70, 30?"
         ) == "70"
+
+
+def test_square_and_root():
+    assert process_query(
+        "Which of the following numbers is both a \
+            square and a cube: 2227, 3136, 1259, 345, 414, 729, 1728?"
+        ) == "729"
