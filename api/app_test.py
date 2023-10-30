@@ -36,3 +36,9 @@ def test_multiplication():
     assert process_query(
         "What is 39 multiplied by 85?"
         ) == "3315"
+
+
+def test_find_prime():
+    assert process_query(
+        "Which of the following numbers are primes: 15, 64, 26, 72, 47?"
+        ) == "47"

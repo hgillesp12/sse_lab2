@@ -55,6 +55,8 @@ def process_query(input_text):
         return str(process_square_and_cube(input_text))
     elif "multiplied" in input_text:
         return multiply(input_text)
+    elif "primes" in input_text:
+        return str(find_prime(input_text))
     else:
         return "Unknown"
 
@@ -110,3 +112,30 @@ def multiply(input_text):
     num2 = x[5][:-1]
     temp = int(num1) * int(num2)
     return str(temp)
+
+
+def find_prime(input_text):
+    numbers = []
+    current_number = ''
+    for char in input_text:
+        if char.isdigit():
+            current_number += char
+        elif current_number:
+            numbers.append(int(current_number))
+            current_number = ''
+
+    # Add the last number if there is one
+    if current_number:
+        numbers.append(int(current_number))
+    for number in numbers:
+        if is_prime(number):
+            return number
+
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
