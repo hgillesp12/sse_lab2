@@ -47,3 +47,20 @@ def process_query(input_text):
         return "Dinosaurs ruled the Earth 200 million years ago"
     else:
         return "Unknown"
+
+
+def process_query2(input_text):
+    s = "Which of the following numbers is the largest: 45, 70, 30"
+    numbers = []
+    current_number = ''
+    for char in s:
+        if char.isdigit():
+            current_number += char
+        elif current_number:
+            numbers.append(int(current_number))
+            current_number = ''
+
+    # Add the last number if there is one
+    if current_number:
+        numbers.append(int(current_number))
+    return max(numbers)

@@ -1,4 +1,4 @@
-from app import process_query
+from app import process_query, process_query2
 
 
 def test_knows_about_dinosaurs():
@@ -9,3 +9,9 @@ def test_knows_about_dinosaurs():
 
 def test_does_not_know_about_asteroids():
     assert process_query("asteroids") == "Unknown"
+
+
+def test_largest_number():
+    assert process_query2(
+        "Which of the following numbers is the largest: 45, 70, 30"
+        ) == 70
