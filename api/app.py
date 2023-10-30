@@ -51,6 +51,8 @@ def process_query(input_text):
         return sumof(input_text)
     elif "Which of the following numbers is the largest" in input_text:
         return str(find_largest(input_text))
+    elif "multiplied" in input_text:
+        return multiply(input_text)
     else:
         return "Unknown"
 
@@ -62,7 +64,7 @@ def sumof(input_text):
     temp = int(num1) + int(num2)
     return str(temp)
 
-    
+
 def find_largest(input_text):
     numbers = []
     current_number = ''
@@ -78,4 +80,10 @@ def find_largest(input_text):
         numbers.append(int(current_number))
     return max(numbers)
 
-    
+
+def multiply(input_text):
+    x = input_text.split()
+    num1 = x[2]
+    num2 = x[5][:-1]
+    temp = int(num1) * int(num2)
+    return str(temp)
