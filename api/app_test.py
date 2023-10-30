@@ -34,3 +34,9 @@ def test_square_and_root():
 
 def test_subtract_two_numbers():
     assert process_query("What is 5 minus 2?") == "3"
+
+
+def test_multiplication():
+    assert process_query(
+        "What is 39 multiplied by 85?"
+        ) == "3315"

@@ -55,6 +55,8 @@ def process_query(input_text):
         return str(process_square_and_cube(input_text))
     elif "minus" in input_text:
         return str(subtraction(input_text))
+    elif "multiplied" in input_text:
+        return multiply(input_text)
     else:
         return "Unknown"
 
@@ -109,4 +111,11 @@ def subtraction(input_text):
     num1 = x[2]
     num2 = x[4][:-1]
     temp = int(num1) - int(num2)
+
+    
+def multiply(input_text):
+    x = input_text.split()
+    num1 = x[2]
+    num2 = x[5][:-1]
+    temp = int(num1) * int(num2)
     return str(temp)
