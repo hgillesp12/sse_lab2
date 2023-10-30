@@ -51,8 +51,31 @@ def process_query(input_text):
         return sumof(input_text)
     elif "Which of the following numbers is the largest" in input_text:
         return str(find_largest(input_text))
+    elif "square and a cube" in input_text:
+        return str(process_square_and_cube(input_text))
     else:
         return "Unknown"
+
+
+def process_square_and_cube(input_text):
+    numbers = []
+    current_number = ''
+    for char in input_text:
+        if char.isdigit():
+            current_number += char
+        elif current_number:
+            numbers.append(int(current_number))
+            current_number = ''
+
+    # Add the last number if there is one
+    if current_number:
+        numbers.append(int(current_number))
+
+    for number in numbers:
+        square_root = round(number ** (1/2))
+        cube_root = round(number ** (1/3))
+        if (cube_root ** 3 == number) and (square_root ** 2 == number):
+            return number
 
 
 def sumof(input_text):
@@ -62,7 +85,7 @@ def sumof(input_text):
     temp = int(num1) + int(num2)
     return str(temp)
 
-    
+
 def find_largest(input_text):
     numbers = []
     current_number = ''
@@ -77,5 +100,3 @@ def find_largest(input_text):
     if current_number:
         numbers.append(int(current_number))
     return max(numbers)
-
-    
