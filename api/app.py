@@ -62,7 +62,7 @@ def sumof(input_text):
     temp = int(num1) + int(num2)
     return str(temp)
 
-    
+
 def find_largest(input_text):
     numbers = []
     current_number = ''
