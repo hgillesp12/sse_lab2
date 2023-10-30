@@ -13,3 +13,7 @@ def test_knows_name():
 
 def test_does_not_know_about_asteroids():
     assert process_query("asteroids") == "Unknown"
+
+
+def test_sum_two_numbers():
+    assert process_query("What is 5 plus 2?") == "7"

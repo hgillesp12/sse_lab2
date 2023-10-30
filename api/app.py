@@ -47,5 +47,15 @@ def process_query(input_text):
         return "Dinosaurs ruled the Earth 200 million years ago"
     elif "name" in input_text:
         return "Ctrl+Alt+Defeat"
+    elif "plus" in input_text:
+        return sumof(input_text)
     else:
         return "Unknown"
+
+
+def sumof(input_text):
+    x = input_text.split()
+    num1 = x[2]
+    num2 = x[4][:-1]
+    temp = int(num1) + int(num2)
+    return str(temp)
