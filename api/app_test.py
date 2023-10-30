@@ -18,7 +18,7 @@ def test_does_not_know_about_asteroids():
 def test_sum_two_numbers():
     assert process_query("What is 5 plus 2?") == "7"
 
-    
+
 def test_largest_number():
     assert process_query(
         "Which of the following numbers is the largest: 45, 70, 30?"
