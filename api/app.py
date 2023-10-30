@@ -77,5 +77,3 @@ def find_largest(input_text):
     if current_number:
         numbers.append(int(current_number))
     return max(numbers)
-
-    
