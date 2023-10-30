@@ -30,3 +30,9 @@ def test_square_and_root():
         "Which of the following numbers is both a \
             square and a cube: 2227, 3136, 1259, 345, 414, 729, 1728?"
         ) == "729"
+
+
+def test_multiplication():
+    assert process_query(
+        "What is 39 multiplied by 85?"
+        ) == "3315"
