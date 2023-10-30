@@ -53,6 +53,8 @@ def process_query(input_text):
         return str(find_largest(input_text))
     elif "square and a cube" in input_text:
         return str(process_square_and_cube(input_text))
+    elif "multiplied" in input_text:
+        return multiply(input_text)
     else:
         return "Unknown"
 
