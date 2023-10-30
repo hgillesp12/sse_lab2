@@ -58,7 +58,7 @@ def process_query(input_text):
     elif "multiplied" in input_text:
         return multiply(input_text)
     elif "primes" in input_text:
-        return str(find_prime(input_text))
+        return find_prime(input_text)
     else:
         return "Unknown"
 
@@ -137,9 +137,11 @@ def find_prime(input_text):
     # Add the last number if there is one
     if current_number:
         numbers.append(int(current_number))
+    prime_numbers = []
     for number in numbers:
         if is_prime(number):
-            return number
+            prime_numbers.append(number)
+    return prime_numbers
 
 
 def is_prime(n):

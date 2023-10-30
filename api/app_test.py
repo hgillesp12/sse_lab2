@@ -45,4 +45,4 @@ def test_multiplication():
 def test_find_prime():
     assert process_query(
         "Which of the following numbers are primes: 15, 64, 26, 72, 47?"
-        ) == "47"
+        ) == [47]
