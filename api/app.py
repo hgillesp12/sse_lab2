@@ -8,6 +8,16 @@ def hello_world():
     return render_template("index.html")
 
 
+@app.route("/home")
+def hello_world():
+    return render_template("index.html")
+
+
+@app.route("/user")
+def hello_world():
+    return render_template("GitHub.html")
+
+
 @app.route('/images/<path:path>')
 def serve_static(path):
     return send_from_directory('static/images', path)
@@ -21,6 +31,13 @@ def submit():
                            name=input_name,
                            flavor=flavor_rating,
                            image_link=load_image(flavor_rating))
+
+
+@app.route('/username_submit', methods=["POST"])
+def username_submit():
+    username = request.form.get("username")
+    return render_template("username_response.html",
+                           username=username)
 
 
 def load_image(flavor_rating):
