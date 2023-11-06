@@ -1,4 +1,5 @@
 from flask import Flask, render_template, send_from_directory, request
+import requests
 
 app = Flask(__name__)
 
@@ -9,12 +10,12 @@ def hello_world():
 
 
 @app.route("/home")
-def hello_world():
+def send_to_home():
     return render_template("index.html")
 
 
 @app.route("/user")
-def hello_world():
+def send_to_user():
     return render_template("GitHub.html")
 
 
@@ -36,8 +37,20 @@ def submit():
 @app.route('/username_submit', methods=["POST"])
 def username_submit():
     username = request.form.get("username")
+    repo_names = get_github_user_repo_names(username)
     return render_template("username_response.html",
-                           username=username)
+                           username=username,
+                           github_repos=repo_names)
+
+
+def get_github_user_repo_names(username):
+    response = requests.get("https://api.github.com/users/" + username + "/repos")
+    if response.status_code == 200:
+        repos = response.json() # data returned is a list of ‘repository’ entities
+        repo_names = []
+        for repo in repos:
+            repo_names.append(repo["full_name"])
+        return repo_names
 
 
 def load_image(flavor_rating):
