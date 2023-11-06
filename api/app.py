@@ -44,9 +44,10 @@ def username_submit():
 
 
 def get_github_user_repo_names(username):
-    response = requests.get("https://api.github.com/users/" + username + "/repos")
+    response = requests.get(
+        "https://api.github.com/users/" + username + "/repos")
     if response.status_code == 200:
-        repos = response.json() # data returned is a list of ‘repository’ entities
+        repos = response.json()
         repo_names = []
         for repo in repos:
             repo_names.append(repo["full_name"])
