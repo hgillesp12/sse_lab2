@@ -37,6 +37,7 @@ def submit():
 @app.route('/username_submit', methods=["POST"])
 def username_submit():
     username = request.form.get("username")
+    user_info = get_github_user_info(username)
     repos = get_github_user_repo_info(username)
     for repo in repos:
         repo["commit"] = []
@@ -45,7 +46,16 @@ def username_submit():
             )
     return render_template("username_response.html",
                            username=username,
-                           repos=repos)
+                           repos=repos,
+                           user_info=user_info)
+
+
+def get_github_user_info(username):
+    response = requests.get(
+        "https://api.github.com/users/" + username)
+    if response.status_code == 200:
+        user_info = response.json()
+        return user_info
 
 
 def get_github_repo_commits_info(repo, username):

@@ -32,6 +32,9 @@
     </head>
     <body>
         <h1>Hello {{ username }}</h1>
+        <img src={{user_info.avatar_url}} alt={{username}}>
+        <p>Location: {{user_info.location}}</p>
+        <h1>Repository Information Table</h1>
         <table>
             <th>Name</th>
             <th>Description</th>
