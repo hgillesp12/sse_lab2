@@ -12,10 +12,16 @@
     <body>
         <h1>Hello {{ username }}</h1>
         <table>
-            {% for item in items %}
-            <TR>
-                <TD class = item.name></TD>
-            </TR>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Last Updated</th>
+            {% for repo in repos %}
+            <tr>
+                <td>{{repo.name}}</td>
+                <td>{{repo.description}}</td>
+                <td>{{repo.updated_at}}</td>
+            </tr>
+            {% endfor %}
         </table>
     </body>
 </html>
