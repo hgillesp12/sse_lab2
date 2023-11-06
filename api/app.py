@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory, request
 import requests
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -37,21 +38,24 @@ def submit():
 @app.route('/username_submit', methods=["POST"])
 def username_submit():
     username = request.form.get("username")
-    repo_names = get_github_user_repo_names(username)
+    repo_info = get_github_user_repo_info(username)
+    df = pd.DataFrame(repo_info)
     return render_template("username_response.html",
                            username=username,
-                           github_repos=repo_names)
+                           github_repos=df.to_html())
 
 
-def get_github_user_repo_names(username):
+def get_github_user_repo_info(username):
     response = requests.get(
         "https://api.github.com/users/" + username + "/repos")
     if response.status_code == 200:
         repos = response.json()
-        repo_names = []
+        repo_info = {"name":[], "last_update":[], "description":[]}
         for repo in repos:
-            repo_names.append(repo["full_name"])
-        return repo_names
+            repo_info["name"].append(repo["full_name"])
+            repo_info["last_update"].append(repo["updated_at"])
+            repo_info["description"].append(repo["description"])
+        return repo_info
 
 
 def load_image(flavor_rating):
