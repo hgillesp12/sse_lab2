@@ -38,9 +38,22 @@ def submit():
 def username_submit():
     username = request.form.get("username")
     repos = get_github_user_repo_info(username)
+    for repo in repos:
+        repo["commit"] = []
+        repo["commit"] = (
+            get_github_repo_commits_info(repo["name"], username)
+            )
     return render_template("username_response.html",
                            username=username,
                            repos=repos)
+
+
+def get_github_repo_commits_info(repo, username):
+    response = requests.get(
+        "https://api.github.com/repos/" + username + "/" + repo + "/commits")
+    if response.status_code == 200:
+        commits = response.json()
+        return commits[0]
 
 
 def get_github_user_repo_info(username):

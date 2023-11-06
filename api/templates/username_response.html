@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <style>
-        h1, p {
+        h1, p, table {
         font-size: 1em;
         font-family: "Open Sans", "Helvetica Neue", sans-serif;
         color: #00008B;
@@ -15,11 +15,17 @@
             <th>Name</th>
             <th>Description</th>
             <th>Last Updated</th>
+            <th>Commit Author</th>
+            <th>Commit Message</th>
+            <th>Commit SHA</th>
             {% for repo in repos %}
             <tr>
                 <td>{{repo.name}}</td>
                 <td>{{repo.description}}</td>
                 <td>{{repo.updated_at}}</td>
+                <td>{{repo.commit.commit.author.name}}</td>
+                <td>{{repo.commit.commit.message}}</td>
+                <td>{{repo.commit.sha}}</td>
             </tr>
             {% endfor %}
         </table>
