@@ -57,7 +57,8 @@ def username_submit():
 
 
 def get_number_fun_fact(number):
-    response = requests.get("http://numbersapi.com/" + str(number) + "/trivia?json")
+    response = requests.get(
+        "http://numbersapi.com/" + str(number) + "/trivia?json")
     if response.status_code == 200:
         number_fun_fact = response.json()
         return number_fun_fact
