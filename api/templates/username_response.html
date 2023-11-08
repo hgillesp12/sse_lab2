@@ -33,7 +33,7 @@
     <body>
         <h1>Hello {{ username }}, you have {{ user_info.followers }} on GitHub!</h1>
         <p>Fun fact about your follower count. Did you know?</p>
-        <p>{{ number_fun_fact }}</p>
+        <p>{{ number_fun_fact.text }}</p>
         <img src={{user_info.avatar_url}} alt={{username}}>
         <p>Location: {{user_info.location}}</p>
         <p>Description: {{user_info.bio}}</p>

@@ -45,7 +45,9 @@ def username_submit():
             get_github_repo_commits_info(repo["name"], username)
             )
     activity = get_activity_recommendation()
-    number_fun_fact = get_number_fun_fact(user_info["followers"])
+    number = user_info["followers"]
+    number_fun_fact = get_number_fun_fact(number)
+    print(number_fun_fact)
     return render_template("username_response.html",
                            username=username,
                            number_fun_fact=number_fun_fact,
@@ -55,7 +57,7 @@ def username_submit():
 
 
 def get_number_fun_fact(number):
-    response = requests.get("http://numbersapi.com/" + str(number) + "/trivia")
+    response = requests.get("http://numbersapi.com/" + str(number) + "/trivia?json")
     if response.status_code == 200:
         number_fun_fact = response.json()
         return number_fun_fact
