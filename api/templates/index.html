@@ -7,27 +7,32 @@
         color: #2E435E;
         }
 
-		.introduction-section{
+		header{
 		padding: 1em 0;
 		border-top: solid 1em #2E435E;
+		}
+
+		.introduction-section{
 		text-align: center;
 		}
 		
-		.column {
+		.column{
 		float: left;
-		width: 33.33%;
+		border: 2px dotted #81A6D6;
+		border-radius: 10px;
+		padding: 10px;
 		}
 
-		.column > h1, .img_section {
+		.column > h1, .img_section{
 		text-align: center;
 		}
 
-		.row:after {
-		content: "";
-		display: table;
-		clear: both;
+		.grid-container{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
 		}
-		
+
 		footer{
 		text-align: center;
 		padding: 1em 0;
@@ -38,14 +43,16 @@
         <title>SSE-Lab2</title>
     </head>
     <body>
-		<section class="introduction-section">
+		<header>
 		    <a href="/home">Home</a>
             <a href="/user">User</a>
+		</header>
+		<section class="introduction-section">
 			<h1>Hello!</h1>
 			<p>Welcome to this website for the Software Systems Engineering project at Imperial College London.</p>
 			<img src="/images/imperial_logo.png" style="height:50px;" alt="Imperial Logo">
 		</section>
-		<div class="row">
+		<div class="grid-container">
 			<div class="column">
 				<h1>What is your name and favourite ice cream flavour?</h1>
 				<form action="/submit" method="post">
