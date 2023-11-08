@@ -3,6 +3,7 @@ import requests
 
 app = Flask(__name__)
 
+ERROR_MESSAGE = "Sorry, your request could not be processed right now. Please try again later."
 
 @app.route("/")
 def hello_world():
@@ -46,14 +47,13 @@ def username_submit():
     if user_info is None:
         return render_template(
             "GitHub.html",
-            message="Sorry, please try again later."
+            message=ERROR_MESSAGE
             )
     repos = get_github_user_repo_info(username)
     if repos is None:
         return render_template("GitHub.html",
-                               message="Sorry, your request \
-                                could not be processed right now. \
-                                Please try again later.")
+                               message=ERROR_MESSAGE
+                               )
     for repo in repos:
         repo["commit"] = []
         repo["commit"] = (
@@ -62,8 +62,7 @@ def username_submit():
         if repo["commit"] is None:
             return render_template(
                 "GitHub.html",
-                message="User " + username +
-                " has no commits, try another."
+                message=ERROR_MESSAGE
                 )
     activity = get_activity_recommendation()
     number = user_info["followers"]
