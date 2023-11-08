@@ -21,7 +21,7 @@ def send_to_home():
 def send_to_user():
     return render_template("GitHub.html",
                            message="Enter a GitHub \
-                            username (e.g. procaconsul) and \
+                            username (e.g. ImperialCollegeLondon) and \
                                 we'll display some fun \
                                     information for you.")
 
