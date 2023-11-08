@@ -16,7 +16,8 @@ def send_to_home():
 
 @app.route("/user")
 def send_to_user():
-    return render_template("GitHub.html")
+    return render_template("GitHub.html",
+                           message="Enter a GitHub username (e.g. shurans) and we'll display some fun information for you.")
 
 
 @app.route('/images/<path:path>')
@@ -47,7 +48,9 @@ def username_submit():
     activity = get_activity_recommendation()
     number = user_info["followers"]
     number_fun_fact = get_number_fun_fact(number)
-    print(number_fun_fact)
+    if repos is None:
+        return render_template("GitHub.html",
+                               message="Sorry, your request could not be processed right now.")
     return render_template("username_response.html",
                            username=username,
                            number_fun_fact=number_fun_fact,
