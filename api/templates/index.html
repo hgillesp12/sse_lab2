@@ -19,7 +19,10 @@
 		.column {
 		float: left;
 		width: 33.33%;
-		padding: 10px;
+		}
+
+		.column > h1, .img_section {
+		text-align: center;
 		}
 
 		.row:after {
@@ -30,6 +33,11 @@
 		
 		footer{
 		text-align: center;
+		padding: 1em 0;
+		background-color: #DADFE0;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-bottom: solid 1em #2E435E;
 		}
     </style>
     <head>
@@ -64,18 +72,22 @@
 			</div>
 			<div class="column">
 				<h1>Click one of the items in the image below!</h1>
-				<img src="/images/british.png" alt="British" usemap="#british" width="400" height="200">
-				<map name="british">
-				<area shape="rect" coords="0,0,150,200" alt="Guard" href="https://en.wikipedia.org/wiki/King%27s_Guard">
-				<area shape="rect" coords="150,0,250,200" alt="Crown" href="https://www.netflix.com/gb/title/80025678">
-				<area shape="rect" coords="250,0,400,200" alt="Tea" href="https://www.whittard.co.uk/">
-				</map>
+				<div class="img_section">
+					<img src="/images/british.png" alt="British" usemap="#british" width="400" height="200">
+					<map name="british">
+					<area shape="rect" coords="0,0,150,200" alt="Guard" href="https://en.wikipedia.org/wiki/King%27s_Guard">
+					<area shape="rect" coords="150,0,250,200" alt="Crown" href="https://www.netflix.com/gb/title/80025678">
+					<area shape="rect" coords="250,0,400,200" alt="Tea" href="https://www.whittard.co.uk/">
+					</map>
+				</div>
 			</div>
 			<div class="column">
-				<h1>GitHub User Information</h1>
-				<a href="/user">
-					<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height:50px";>
-				</a>
+				<h1>Click on the below to get your GitHub user information</h1>
+				<div class="img_section">
+					<a href="/user">
+						<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height:50px";>
+					</a>
+				</div>
 			</div>
 		</div>
     </body>
