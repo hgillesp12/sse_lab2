@@ -17,7 +17,10 @@ def send_to_home():
 @app.route("/user")
 def send_to_user():
     return render_template("GitHub.html",
-                           message="Enter a GitHub username (e.g. shurans) and we'll display some fun information for you.")
+                           message="Enter a GitHub \
+                            username (e.g. shurans) and \
+                                we'll display some fun \
+                                    information for you.")
 
 
 @app.route('/images/<path:path>')
@@ -50,7 +53,8 @@ def username_submit():
     number_fun_fact = get_number_fun_fact(number)
     if repos is None:
         return render_template("GitHub.html",
-                               message="Sorry, your request could not be processed right now.")
+                               message="Sorry, your request \
+                                could not be processed right now.")
     return render_template("username_response.html",
                            username=username,
                            number_fun_fact=number_fun_fact,
