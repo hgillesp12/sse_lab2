@@ -3,7 +3,9 @@ import requests
 
 app = Flask(__name__)
 
-ERROR_MESSAGE = "Sorry, your request could not be processed right now. Please try again later."
+ERROR_MESSAGE = "Sorry, your request could not be processed right now. \
+    Please try again later."
+
 
 @app.route("/")
 def hello_world():
