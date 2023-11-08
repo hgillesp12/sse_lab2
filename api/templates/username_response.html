@@ -4,23 +4,23 @@
         h1, p, table {
         font-size: 1em;
         font-family: "Open Sans", "Helvetica Neue", sans-serif;
-        color: #00008B;
+        color: #2E435E;
         }
 
-        table {
+		table {
         border-collapse: collapse;
-        border: 2px solid rgb(200,200,200);
+        border: 2px solid #C9CFD6;
         letter-spacing: 1px;
         font-size: 0.8rem;
         }
 
         td, th {
-        border: 1px solid rgb(190,190,190);
+        border: 1px solid #C9CFD6;
         padding: 10px 20px;
         }
 
         th {
-        background-color: rgb(235,235,235);
+        background-color: #C4D8F2;
         }
 
         td {
@@ -31,32 +31,32 @@
     <head>
     </head>
     <body>
-        <h1>Hello <a href={{user_info.html_url}}>{{ username }}</a>, you have {{ user_info.followers }} followers on GitHub!</h1>
-        <p>Fun fact about your follower count. Did you know?</p>
-        <p>{{ number_fun_fact.text }}</p>
-        <img src={{user_info.avatar_url}} alt={{username}}>
-        <p>Location: {{user_info.location}}</p>
-        <p>Description: {{user_info.bio}}</p>
-        <h1>Hey! Are you ever bored in life? Try this activity!</h1>
-        <p>{{ activity.activity }}</p>
-        <h1>Repository Information Table</h1>
-        <table>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Last Updated</th>
-            <th>Commit Author</th>
-            <th>Commit Message</th>
-            <th>Commit SHA</th>
-            {% for repo in repos %}
-            <tr>
-                <td>{{repo.name}}</td>
-                <td>{{repo.description}}</td>
-                <td>{{repo.updated_at}}</td>
-                <td>{{repo.commit.commit.author.name}}</td>
-                <td>{{repo.commit.commit.message}}</td>
-                <td>{{repo.commit.sha}}</td>
-            </tr>
-            {% endfor %}
-        </table>
+		<h1>Hello <a href={{user_info.html_url}}>{{ username }}</a>, you have {{ user_info.followers }} followers on GitHub!</h1>
+		<p><em>Fun fact about your follower count. Did you know?</p>
+		<p>{{ number_fun_fact.text }}</em></p>
+		<img src={{user_info.avatar_url}} style="height:40px" alt={{username}}>
+		<p>Location: {{user_info.location}}</p>
+		<p>Description: {{user_info.bio}}</p>
+		<h1>Hey! Are you ever bored in life? Try this activity!</h1>
+		<p>{{ activity.activity }}</p>
+		<h1>Repository Information Table</h1>
+		<table>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Last Updated</th>
+			<th>Commit Author</th>
+			<th>Commit Message</th>
+			<th>Commit SHA</th>
+			{% for repo in repos %}
+			<tr>
+				<td>{{repo.name}}</td>
+				<td>{{repo.description}}</td>
+				<td>{{repo.updated_at}}</td>
+				<td>{{repo.commit.commit.author.name}}</td>
+				<td>{{repo.commit.commit.message}}</td>
+				<td>{{repo.commit.sha}}</td>
+			</tr>
+			{% endfor %}
+		</table>
     </body>
 </html>
