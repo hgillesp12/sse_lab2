@@ -1,45 +1,85 @@
 <!DOCTYPE html>
 <html>  
     <style>
-        h1, p, input, label{
+        h1, p, input, label, a{
         font-size: 1em;
         font-family: "Open Sans", "Helvetica Neue", sans-serif;
-        color: blue;
+        color: #2E435E;
         }
+
+		.introduction-section{
+		padding: 1em 0;
+		background-color: #D7E7FC;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-top: solid 1em #2E435E;
+		text-align: center;
+		}
+		
+		.column {
+		float: left;
+		width: 33.33%;
+		padding: 10px;
+		}
+
+		.row:after {
+		content: "";
+		display: table;
+		clear: both;
+		}
+		
+		footer{
+		text-align: center;
+		}
     </style>
     <head>
         <title>SSE-Lab2</title>
     </head>
     <body>
-        <header>
-            <a href="/home">Home</a>
-            <a href = "/user">User</a>
-        </header>
-        <h1>Hello!</h1>
-        <p>Welcome to this website for the Software Systems Engineering project at Imperial College London.</p>
-        <p>Website created by Diveena Nanthakumaran and Hannah Gillespie</p>
-        <img src="/images/imperial_logo.png" alt="Imperial Logo">
-        <form action="/submit" method="post">
-            <br>
-            <label for="namefield">Name:</label>
-            <input type="text" id="namefield" name="name"><br><br>
-            <label for="rating">Best Ice Cream Flavor:</label><br>
-            <input type="radio" id="chocolate" name="rating" value="Chocolate">
-            <label for="chocolate">Chocolate</label><br>
-            <input type="radio" id="mint_chocolate" name="rating" value="Mint Chocolate">
-            <label for="mint_chocolate">Mint Chocolate</label><br>
-            <input type="radio" id="pistachio" name="rating" value="Pistachio">
-            <label for="pistachio">Pistachio</label><br>
-            <input type="radio" id="strawberry" name="rating" value="Strawberry">
-            <label for="strawberry">Strawberry</label><br>
-            <input type="submit" value="Submit">
-        </form><br> 
-        <h1>Click one of the items in the image below!</h1>
-        <img src="/images/british.png" alt="British" usemap="#british" width="400" height="200">
-        <map name="british">
-        <area shape="rect" coords="0,0,150,200" alt="Guard" href="https://en.wikipedia.org/wiki/King%27s_Guard">
-        <area shape="rect" coords="150,0,250,200" alt="Crown" href="https://www.netflix.com/gb/title/80025678">
-        <area shape="rect" coords="250,0,400,200" alt="Tea" href="https://www.whittard.co.uk/">
-        </map>
+		<section class="introduction-section">
+		    <a href="/home">Home</a>
+            <a href="/user">User</a>
+			<h1>Hello!</h1>
+			<p>Welcome to this website for the Software Systems Engineering project at Imperial College London.</p>
+			<img src="/images/imperial_logo.png" style="height:50px;" alt="Imperial Logo">
+		</section>
+		<div class="row">
+			<div class="column">
+				<h1>What is your name and favourite ice cream flavour?</h1>
+				<form action="/submit" method="post">
+					<br>
+					<label for="namefield">Name:</label>
+					<input type="text" id="namefield" name="name"><br><br>
+					<label for="rating">Best Ice Cream Flavor:</label><br>
+					<input type="radio" id="chocolate" name="rating" value="Chocolate">
+					<label for="chocolate">Chocolate</label><br>
+					<input type="radio" id="mint_chocolate" name="rating" value="Mint Chocolate">
+					<label for="mint_chocolate">Mint Chocolate</label><br>
+					<input type="radio" id="pistachio" name="rating" value="Pistachio">
+					<label for="pistachio">Pistachio</label><br>
+					<input type="radio" id="strawberry" name="rating" value="Strawberry">
+					<label for="strawberry">Strawberry</label><br>
+					<input type="submit" value="Submit">
+				</form><br> 
+			</div>
+			<div class="column">
+				<h1>Click one of the items in the image below!</h1>
+				<img src="/images/british.png" alt="British" usemap="#british" width="400" height="200">
+				<map name="british">
+				<area shape="rect" coords="0,0,150,200" alt="Guard" href="https://en.wikipedia.org/wiki/King%27s_Guard">
+				<area shape="rect" coords="150,0,250,200" alt="Crown" href="https://www.netflix.com/gb/title/80025678">
+				<area shape="rect" coords="250,0,400,200" alt="Tea" href="https://www.whittard.co.uk/">
+				</map>
+			</div>
+			<div class="column">
+				<h1>GitHub User Information</h1>
+				<a href="/user">
+					<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height:50px";>
+				</a>
+			</div>
+		</div>
     </body>
+	<footer>
+		<p><em>Website created by Diveena Nanthakumaran and Hannah Gillespie</em></p>
+	</footer>
 </html>
