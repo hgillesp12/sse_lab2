@@ -31,7 +31,7 @@
     <head>
     </head>
     <body>
-        <h1>Hello {{ username }}, you have {{ user_info.followers }} on GitHub!</h1>
+        <h1>Hello <a href={{user_info.html_url}}>{{ username }}</a>, you have {{ user_info.followers }} followers on GitHub!</h1>
         <p>Fun fact about your follower count. Did you know?</p>
         <p>{{ number_fun_fact.text }}</p>
         <img src={{user_info.avatar_url}} alt={{username}}>
