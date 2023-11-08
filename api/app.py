@@ -41,20 +41,33 @@ def submit():
 @app.route('/username_submit', methods=["POST"])
 def username_submit():
     username = request.form.get("username")
+    user_info = None
     user_info = get_github_user_info(username)
+    if user_info is None:
+        return render_template(
+            "GitHub.html",
+            message="Sorry, " + username + " is not a GitHub user."
+            )
     repos = get_github_user_repo_info(username)
+    if repos is None:
+        return render_template("GitHub.html",
+                               message="Sorry, your request \
+                                could not be processed right now. \
+                                Please try again later.")
     for repo in repos:
         repo["commit"] = []
         repo["commit"] = (
             get_github_repo_commits_info(repo["name"], username)
             )
+        if repo["commit"] is None:
+            return render_template(
+                "GitHub.html",
+                message="User " + username +
+                " has no commits, try another."
+                )
     activity = get_activity_recommendation()
     number = user_info["followers"]
     number_fun_fact = get_number_fun_fact(number)
-    if repos is None:
-        return render_template("GitHub.html",
-                               message="Sorry, your request \
-                                could not be processed right now.")
     return render_template("username_response.html",
                            username=username,
                            number_fun_fact=number_fun_fact,
