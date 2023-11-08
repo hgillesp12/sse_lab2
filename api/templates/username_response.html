@@ -31,11 +31,14 @@
     <head>
     </head>
     <body>
-        <h1>Hello {{ username }}</h1>
+        <h1>Hello {{ username }}, you have {{ username.followers }} on GitHub!</h1>
+        <p>Fun fact about your follower count. Did you know?</p>
+        <p>{{ number_fun_fact }}</p>
         <img src={{user_info.avatar_url}} alt={{username}}>
         <p>Location: {{user_info.location}}</p>
         <p>Description: {{user_info.bio}}</p>
-        <p>Twitter Username: {{user_info.twitter_username}}</p>
+        <h1>Hey! Are you ever bored in life? Try this activity!</h1>
+        <p>{{ activity.activity }}</p>
         <h1>Repository Information Table</h1>
         <table>
             <th>Name</th>

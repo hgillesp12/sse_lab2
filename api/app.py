@@ -44,10 +44,28 @@ def username_submit():
         repo["commit"] = (
             get_github_repo_commits_info(repo["name"], username)
             )
+    activity = get_activity_recommendation()
+    number_fun_fact = get_number_fun_fact(user_info["followers"])
     return render_template("username_response.html",
                            username=username,
+                           number_fun_fact=number_fun_fact,
                            repos=repos,
-                           user_info=user_info)
+                           user_info=user_info,
+                           activity=activity)
+
+
+def get_number_fun_fact(number):
+    response = requests.get("http://numbersapi.com/" + str(number) + "/trivia")
+    if response.status_code == 200:
+        number_fun_fact = response.json()
+        return number_fun_fact
+
+
+def get_activity_recommendation():
+    response = requests.get("https://www.boredapi.com/api/activity/")
+    if response.status_code == 200:
+        activity = response.json()
+        return activity
 
 
 def get_github_user_info(username):
